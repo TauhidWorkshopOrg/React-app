@@ -8,6 +8,8 @@
 #   workflow_dispatch:
 # jobs:
 #   deploy-staging:
+#      env:
+#        REPO_PUSH_TOKEN : ${{ secrets.ACTIONS_TOKEN }}
 #     name: Deploy to staging environment
 #     runs-on: ubuntu-latest
 #     environment: Staging
@@ -23,7 +25,7 @@
 #         with:
 #           branch: gh-pages # The branch the action should deploy to.
 #           folder: build
-#           token: ${{secrets.REPO_PUSH_TOKEN}}
+#           token: ${{env.REPO_PUSH_TOKEN}}
 #   deploy-production:
 #     name: Deploy to production environment
 #     runs-on: ubuntu-latest
@@ -44,5 +46,5 @@
 #         with:
 #           branch: gh-pages # The branch the action should deploy to.
 #           folder: build
-#           token: ${{secrets.REPO_PUSH_TOKEN}}
+#           token: ${{env.REPO_PUSH_TOKEN}}
 #           repository: ${{ env.owner }}/${{ env.repo }}
